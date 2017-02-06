@@ -1,10 +1,7 @@
 
-# Your first neural network
+# First neural network
 
-In this project, you'll build your first neural network and use it to predict daily bike rental ridership. We've provided some of the code, but left the implementation of the neural network up to you (for the most part). After you've submitted this project, feel free to explore the data and the model more.
-
-
-
+This project predicts daily bike rental ridership. Assignment for Deep Learning Nano Degree Program
 
 ```python
 %matplotlib inline
@@ -16,8 +13,6 @@ import matplotlib.pyplot as plt
 ```
 
 ## Load and prepare the data
-
-A critical step in working with neural networks is preparing the data correctly. Variables on different scales make it difficult for the network to efficiently learn the correct weights. Below, we've written the code to load and prepare the data. You'll learn more about this soon!
 
 
 ```python
@@ -169,7 +164,7 @@ rides.head()
 
 This dataset has the number of riders for each hour of each day from January 1 2011 to December 31 2012. The number of riders is split between casual and registered, summed up in the `cnt` column. You can see the first few rows of the data above.
 
-Below is a plot showing the number of bike riders over the first 10 days in the data set. You can see the hourly rentals here. This data is pretty complicated! The weekends have lower over all ridership and there are spikes when people are biking to and from work during the week. Looking at the data above, we also have information about temperature, humidity, and windspeed, all of these likely affecting the number of riders. You'll be trying to capture all this with your model.
+Below is a plot showing the number of bike riders over the first 10 days in the data set. You can see the hourly rentals here. This data is pretty complicated! The weekends have lower over all ridership and there are spikes when people are biking to and from work during the week. Looking at the data above, we also have information about temperature, humidity, and windspeed, all of these likely affecting the number of riders. 
 
 
 ```python
@@ -405,21 +400,10 @@ val_features, val_targets = features[-60*24:], targets[-60*24:]
 
 ## Time to build the network
 
-Below you'll build your network. We've built out the structure and the backwards pass. You'll implement the forward pass through the network. You'll also set the hyperparameters: the learning rate, the number of hidden units, and the number of training passes.
-
 The network has two layers, a hidden layer and an output layer. The hidden layer will use the sigmoid function for activations. The output layer has only one node and is used for the regression, the output of the node is the same as the input of the node. That is, the activation function is $f(x)=x$. A function that takes the input signal and generates an output signal, but takes into account the threshold, is called an activation function. We work through each layer of our network calculating the outputs for each neuron. All of the outputs from one layer become inputs to the neurons on the next layer. This process is called *forward propagation*.
 
 We use the weights to propagate signals forward from the input to the output layers in a neural network. We use the weights to also propagate error backwards from the output back into the network to update our weights. This is called *backpropagation*.
-
-> **Hint:** You'll need the derivative of the output activation function ($f(x) = x$) for the backpropagation implementation. If you aren't familiar with calculus, this function is equivalent to the equation $y = x$. What is the slope of that equation? That is the derivative of $f(x)$.
-
-Below, you have these tasks:
-1. Implement the sigmoid function to use as the activation function. Set `self.activation_function` in `__init__` to your sigmoid function.
-2. Implement the forward pass in the `train` method.
-3. Implement the backpropagation algorithm in the `train` method, including calculating the output error.
-4. Implement the forward pass in the `run` method.
   
-
 
 ```python
 class NeuralNetwork(object):
@@ -564,8 +548,6 @@ plt.ylim(ymax=0.5)
 
 ## Check out your predictions
 
-Here, use the test data to view how well your network is modeling the data. If something is completely wrong here, make sure each step in your network is implemented correctly.
-
 
 ```python
 fig, ax = plt.subplots(figsize=(8,4))
@@ -598,8 +580,6 @@ Answer these questions about your results. How well does the model predict the d
 Predictions were matching more closely the first part of the month. During the Christmas holiday there are probably parameters not accounted for in the data that have a greater impact that other times...more extended holiday time, a necessity perhaps for errands that require vehicles with capacity accomodate passengers and commodities. These may have caused the utility of bikes to diminish independent of the other, recorded, parameters. 
 
 ## Unit tests
-
-Run these unit tests to check the correctness of your network implementation. These tests must all be successful to pass the project.
 
 
 ```python
